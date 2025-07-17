@@ -1,11 +1,12 @@
 package StepDefinition;
 
 import io.cucumber.java.en.*;
+import pages.LoginPage;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
-import utils.ValidationUtils;
 
 import java.time.Duration;
 
@@ -71,7 +72,7 @@ public class LoginSteps {
     @Then("Email format error should be displayed")
     public void email_format_error_should_be_displayed() {
         String enteredEmail = driver.findElement(By.id("email")).getAttribute("value");
-        Assert.assertFalse(ValidationUtils.isValidEmail(enteredEmail), "Email format should be invalid.");
+        Assert.assertFalse(LoginPage.isValidEmail(enteredEmail), "Email format should be invalid.");
     }
 
     @Then("Password field should mask input")

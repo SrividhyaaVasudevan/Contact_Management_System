@@ -1,11 +1,12 @@
 package StepDefinition;
 
 import io.cucumber.java.en.*;
+import pages.LoginPage;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
-import utils.ValidationUtils;
 
 import java.time.Duration;
 
@@ -96,7 +97,7 @@ public class RegisterSteps {
     @Then("Email should be considered invalid during registration")
     public void email_should_be_considered_invalid_during_registration() {
         String enteredEmail = driver.findElement(By.id("email")).getAttribute("value");
-        Assert.assertFalse(ValidationUtils.isValidEmail(enteredEmail));
+        Assert.assertFalse(LoginPage.isValidEmail(enteredEmail));
     }
 
     @And("Close the registration browser")
